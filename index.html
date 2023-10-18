@@ -12,7 +12,7 @@
 </head>
 <body>
     <main id="main">
-        <h1>Excalidraw clone</h1>
+        <!-- <h1>Excalidraw clone</h1> -->
         <canvas id="canvas"></canvas>
 
         <div class="nav">
@@ -25,7 +25,9 @@
 
                 <div class="hr_divider"></div>
 
-                <div class="tool selected"><i class="fa-regular fa-hand"></i></div>
+                <div class="tool selected">
+                    <i id="grab" class="fa-regular fa-hand"></i>
+                </div>
 
                 <div class="tool">
                     <i class="fa-solid fa-arrow-pointer"></i>
@@ -73,9 +75,11 @@
                 </div>
 
                 <div class="tool">
-                    <i class="fa-solid fa-eraser"></i>
+                    <i id="clear" class="fa-solid fa-eraser"></i>
                     <span>0</span>
                 </div>
+
+                <!-- <button id="clear"><i class="fa-solid fa-eraser"></i></button> -->
 
                 <div class="hr_divider"></div>
 
