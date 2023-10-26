@@ -1,89 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./style.css">
 
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
     <title>Excalidraw</title>
 </head>
+
 <body>
     <main id="main">
         <!-- <h1>Excalidraw clone</h1> -->
-        <canvas id="canvas"></canvas>
-
+        
         <div class="nav">
             <div class="menu">
                 <button><i class="fa-solid fa-bars"></i></button>
             </div>
-
+            
             <div class="tool-box">
-                <div class="tool"><i class="fa-solid fa-unlock-keyhole"></i></div>
+                <div class="tool-container">
 
-                <div class="hr_divider"></div>
+                    <div class="tool" id="lock">
+                        <i class="fa-solid fa-unlock-keyhole"></i>
+                    </div>
+                    
+                    <div class="hr_divider"></div>
+                    
+                    <div class="tool" id="hand">
+                        <i id="grab" class="fa-regular fa-hand"></i>
+                    </div>
 
-                <div class="tool selected">
-                    <i id="grab" class="fa-regular fa-hand"></i>
+                    <div class="tool selected" id="pointer">
+                        <i class="fa-solid fa-arrow-pointer"></i>
+                        <span>1</span>
+                    </div>
+
+                    <div class="tool" id="square">
+                        <i class="fa-regular fa-square"></i>
+                        <span>2</span>
+                    </div>
+
+                    <div class="tool" id="diamond">
+                        <i class="fa-regular fa-square diamond"></i>
+                        <span>3</span>
+                    </div>
+
+                    <div class="tool" id="circle">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>4</span>
+                    </div>
+
+                    <div class="tool" id="arrow-right">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>5</span>
+                    </div>
+
+                    <div class="tool" id="line">
+                        <i class="fa-solid fa-minus"></i>
+                        <span>6</span>
+                    </div>
+                    
+                    <div class="tool" id="pencil">
+                        <i class="fa-solid fa-pencil"></i>
+                        <span>7</span>
+                    </div>
+
+                    <div class="tool" id="font">
+                        <i class="fa-solid fa-font"></i>
+                        <span>8</span>
+                    </div>
+                    
+                    <div class="tool" id="image">
+                        <i class="fa-regular fa-image"></i>
+                        <span>9</span>
+                    </div>
+
+                    <div class="tool" id="eraser">
+                        <i id="clear" class="fa-solid fa-eraser"></i>
+                        <span>0</span>
+                    </div>
+
+                    <!-- <button id="clear"><i class="fa-solid fa-eraser"></i></button> -->
+
+                    <div class="hr_divider"></div>
+
+                    <div class="tool" id="more"><i class="fa-solid fa-shapes"></i></div>
                 </div>
-
-                <div class="tool">
-                    <i class="fa-solid fa-arrow-pointer"></i>
-                    <span>1</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-regular fa-square"></i>
-                    <span>2</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-regular fa-square diamond"></i>
-                    <span>3</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-regular fa-circle"></i>
-                    <span>4</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <span>5</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-solid fa-minus"></i>
-                    <span>6</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-solid fa-pencil"></i>
-                    <span>7</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-solid fa-font"></i>
-                    <span>8</span>
-                </div>
-
-                <div class="tool">
-                    <i class="fa-regular fa-image"></i>
-                    <span>9</span>
-                </div>
-
-                <div class="tool">
-                    <i id="clear" class="fa-solid fa-eraser"></i>
-                    <span>0</span>
-                </div>
-
-                <!-- <button id="clear"><i class="fa-solid fa-eraser"></i></button> -->
-
-                <div class="hr_divider"></div>
-
-                <div class="tool"><i class="fa-solid fa-shapes"></i></div>
             </div>
 
             <div class="btn">
@@ -92,8 +100,59 @@
                 <button class="lib"><i class="fa-solid fa-book"></i> &nbsp;Library</button>
             </div>
         </div>
+        
+        <div class="container">
+            <div class="stroke">
+                <label class="title">Stroke</label>
+                <ul class="options">
+                    <li class="option"></li>
+                    <li class="option"></li> 
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="hr_divider"></li>
+                    <li class="option">
+                        <input type="color" id="color-picker" value="#000000">
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-color">
+                <label class="title">Background</label>
+                <ul class="options">
+                    <li class="option"></li>
+                    <li class="option"></li> 
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="hr_divider"></li>
+                    <li class="option">
+                        <input type="color" id="color-picker" value="#000">
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="fill-color">
+                <button><i class="fa-solid fa-square"></i></button>
+            </div>
+            
+            <div class="stroke-width">
+                <button><i class="fa-solid fa-minus"></i></button>
+                <button><i class="fa-solid fa-minus"></i></button>
+                <button><i class="fa-solid fa-minus"></i></button>
+            </div>
+
+            <div class="stroke-style"></div>
+            
+            <div class="opacity">
+                <label class="title">Opacity</label>
+                <input type="range" id="opacity-slider">
+            </div>
+            
+        </div>
+        <canvas id="canvas"></canvas>
     </main>
 
     <script src="./script.js"></script>
 </body>
+
 </html>

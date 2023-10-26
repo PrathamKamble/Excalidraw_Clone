@@ -11,6 +11,10 @@
     src: url(./Virgil.woff2);
 }
 
+#canvas{
+    cursor: crosshair;
+}
+
 #main h1 {
     position: absolute;
     top: 50%;
@@ -28,6 +32,10 @@
 }
 
 .tool-box{
+    background-color: #fff;
+}
+
+.tool-box .tool-container{
     height: 50px;
     display: flex;
     align-items: center;
@@ -46,7 +54,7 @@
 }
 
 .tool{
-    padding: 10PX;
+    padding: 10px;
     display: flex;
     align-items: center;
     border-radius: 8px;
@@ -119,4 +127,101 @@
 
 .selected > i{
     color: #6965db;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 249px;
+    background-color: red;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 7px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: fixed;
+    top: 100px;
+    left: 30px;
+}
+
+.stroke .options{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.stroke .option{
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+} 
+
+.stroke .option:nth-child(1){
+    background-color: #000;
+}
+.stroke .option:nth-child(2){
+    background-color: #e03131;
+}
+.stroke .option:nth-child(3){
+    background-color: #2f9e44;
+}
+.stroke .option:nth-child(4){
+    background-color: #1971c2;
+}
+.stroke .option:nth-child(5){
+    background-color: #f08c00;
+}
+.stroke .option:nth-child(7){
+    background-color: #000;
+}
+
+.bg-color .options{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.bg-color .option{
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    border-radius: 3px;
+} 
+
+.bg-color .option:nth-child(1){
+    background-color: #000;
+}
+.bg-color .option:nth-child(2){
+    background-color: #ffc9c9;
+}
+.bg-color .option:nth-child(3){
+    background-color: #b2f2bb;
+}
+.bg-color .option:nth-child(4){
+    background-color: #a5d8ff;
+}
+.bg-color .option:nth-child(5){
+    background-color: #ffec99;
+}
+.bg-color .option:nth-child(7){
+    background-color: #000;
+}
+
+.option #color-picker {
+    opacity: 0;
+}
+
+.stroke-width {
+    display: flex;
+    gap: 10px;
+}
+
+.stroke-width button {
+    border: none;
+    padding: 4px 6px;
+    border-radius: 3px;
+}
+
+.stroke-width button > i{
+    display: flex;
 }
