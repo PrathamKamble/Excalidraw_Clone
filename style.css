@@ -11,8 +11,12 @@
     src: url(./Virgil.woff2);
 }
 
-#canvas{
-    cursor: crosshair;
+.active {
+    background-color: #e3e2fe !important;
+}
+
+.active > i{
+    color: #6965db;
 }
 
 #main h1 {
@@ -32,7 +36,9 @@
 }
 
 .tool-box{
+    border-radius: 10px;
     background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .tool-box .tool-container{
@@ -42,7 +48,6 @@
     padding: 1rem;
     gap: 5px;
     border: 1px solid #eeeeee;
-    border-radius: 10px;
 }
 
 .hr_divider{
@@ -54,12 +59,13 @@
 }
 
 .tool{
-    padding: 10px;
+    padding: 12px;
     display: flex;
-    align-items: center;
     border-radius: 8px;
     cursor: pointer;
-    position: relative;
+    border: none;
+    outline: none;
+    background: none;
 }
 
 .tool:hover{
@@ -67,7 +73,7 @@
 }
 
 .tool i{
-    color: #8a8a8a;
+    color: #343437;
     font-size: 14px;
 }
 
@@ -121,15 +127,9 @@
     background-color: #5b57d1;
 }
 
-.selected {
-    background-color: #e3e2fe;
-}
+/* color palette css */
 
-.selected > i{
-    color: #6965db;
-}
-
-.container{
+.color-palette{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -141,7 +141,9 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     position: fixed;
     top: 100px;
-    left: 30px;
+    left: -250px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 .stroke .options{
@@ -207,7 +209,8 @@
     background-color: #000;
 }
 
-.option #color-picker {
+.option #color-picker, 
+.option #bgColor-picker{
     opacity: 0;
 }
 
@@ -225,3 +228,113 @@
 .stroke-width button > i{
     display: flex;
 }
+
+/* footer css */
+
+#foot {
+    position: absolute;
+    height: 45px;
+    width: 100%;
+    padding-inline: 1rem;
+    bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .foot-left {
+    display: flex;
+    gap: 1rem;
+  }
+  .zoom-div {
+    height: 36px;
+    background-color: #ececf4;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .percentage:hover,
+  .decrease:hover,
+   .increase:hover,
+    .undo:hover,
+     .redo:hover,
+     .help:hover {
+    background-color: hsl(244, 100%, 97%);
+  }
+  .decrease,
+  .increase {
+      font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+  }
+  .decrease {
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    cursor: pointer;
+  }
+  .increase {
+    height: 100%;
+    cursor: pointer;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .percentage {
+    padding-inline: 10px;
+    color: var(--text-color);
+    font-size: 14px;
+  }
+  .undo-redo-div {
+    height: 36px;
+    font-size: 12px;
+    background-color: #ececf4;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .undo {
+    width: 36px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    cursor: pointer;
+  }
+  .redo {
+    width: 36px;
+    height: 100%;
+    border-left: 1px solid var(--grey-border);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .foot-right {
+    display: flex;
+    gap: 1rem;
+  }
+  .encript {
+    height: 36px;
+    width: 36px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .help {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    font-size: 13px;
+    background-color: #ececf4;
+    border-radius: 8px;
+    cursor: pointer;
+  }

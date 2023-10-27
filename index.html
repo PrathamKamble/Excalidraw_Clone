@@ -17,96 +17,58 @@
 <body>
     <main id="main">
         <!-- <h1>Excalidraw clone</h1> -->
-        
         <div class="nav">
             <div class="menu">
                 <button><i class="fa-solid fa-bars"></i></button>
             </div>
-            
+
             <div class="tool-box">
                 <div class="tool-container">
 
-                    <div class="tool" id="lock">
-                        <i class="fa-solid fa-unlock-keyhole"></i>
-                    </div>
-                    
-                    <div class="hr_divider"></div>
-                    
-                    <div class="tool" id="hand">
-                        <i id="grab" class="fa-regular fa-hand"></i>
-                    </div>
-
-                    <div class="tool selected" id="pointer">
-                        <i class="fa-solid fa-arrow-pointer"></i>
-                        <span>1</span>
-                    </div>
-
-                    <div class="tool" id="square">
-                        <i class="fa-regular fa-square"></i>
-                        <span>2</span>
-                    </div>
-
-                    <div class="tool" id="diamond">
-                        <i class="fa-regular fa-square diamond"></i>
-                        <span>3</span>
-                    </div>
-
-                    <div class="tool" id="circle">
-                        <i class="fa-regular fa-circle"></i>
-                        <span>4</span>
-                    </div>
-
-                    <div class="tool" id="arrow-right">
-                        <i class="fa-solid fa-arrow-right"></i>
-                        <span>5</span>
-                    </div>
-
-                    <div class="tool" id="line">
-                        <i class="fa-solid fa-minus"></i>
-                        <span>6</span>
-                    </div>
-                    
-                    <div class="tool" id="pencil">
-                        <i class="fa-solid fa-pencil"></i>
-                        <span>7</span>
-                    </div>
-
-                    <div class="tool" id="font">
-                        <i class="fa-solid fa-font"></i>
-                        <span>8</span>
-                    </div>
-                    
-                    <div class="tool" id="image">
-                        <i class="fa-regular fa-image"></i>
-                        <span>9</span>
-                    </div>
-
-                    <div class="tool" id="eraser">
-                        <i id="clear" class="fa-solid fa-eraser"></i>
-                        <span>0</span>
-                    </div>
-
-                    <!-- <button id="clear"><i class="fa-solid fa-eraser"></i></button> -->
+                    <button class="tool" id="lock"><i class="fa-solid fa-unlock-keyhole"></i></button>
 
                     <div class="hr_divider"></div>
 
-                    <div class="tool" id="more"><i class="fa-solid fa-shapes"></i></div>
+                    <button class="tool" id="hand"><i id="grab" class="fa-regular fa-hand"></i></button>
+
+                    <button class="tool" id="pointer"><i class="fa-solid fa-arrow-pointer"></i></button>
+
+                    <button class="tool" id="square"><i class="fa-regular fa-square"></i></button>
+
+                    <button class="tool" id="diamond"><i class="fa-regular fa-square diamond"></i></button>
+
+                    <button class="tool" id="circle"><i class="fa-regular fa-circle"></i></button>
+
+                    <button class="tool" id="arrow"><i class="fa-solid fa-arrow-right"></i></button>
+
+                    <button class="tool" id="line"><i class="fa-solid fa-minus"></i></button>
+
+                    <button class="tool" id="pencil"><i class="fa-solid fa-pencil"></i></button>
+
+                    <button class="tool" id="text"><i class="fa-solid fa-font"></i></button>
+
+                    <button class="tool" id="image"><i class="fa-regular fa-image"></i></button>
+
+                    <button class="tool" id="eraser"><i id="clear" class="fa-solid fa-eraser"></i></button>
+
+                    <div class="hr_divider"></div>
+
+                    <button class="tool" id="more"><i class="fa-solid fa-shapes"></i></button>
+
                 </div>
             </div>
-
             <div class="btn">
                 <button class="user"><i class="fa-regular fa-user"></i></button>
-
                 <button class="lib"><i class="fa-solid fa-book"></i> &nbsp;Library</button>
             </div>
         </div>
-        
-        <div class="container">
+
+        <div class="color-palette">
             <div class="stroke">
                 <label class="title">Stroke</label>
                 <ul class="options">
                     <li class="option"></li>
-                    <li class="option"></li> 
+                    <li class="option"></li>
                     <li class="option"></li>
                     <li class="option"></li>
                     <li class="option"></li>
@@ -120,35 +82,56 @@
                 <label class="title">Background</label>
                 <ul class="options">
                     <li class="option"></li>
-                    <li class="option"></li> 
+                    <li class="option"></li>
                     <li class="option"></li>
                     <li class="option"></li>
                     <li class="option"></li>
                     <li class="hr_divider"></li>
                     <li class="option">
-                        <input type="color" id="color-picker" value="#000">
+                        <input type="color" id="bgColor-picker" value="#000">
                     </li>
                 </ul>
             </div>
-            
+
             <div class="fill-color">
-                <button><i class="fa-solid fa-square"></i></button>
-            </div>
-            
-            <div class="stroke-width">
-                <button><i class="fa-solid fa-minus"></i></button>
-                <button><i class="fa-solid fa-minus"></i></button>
-                <button><i class="fa-solid fa-minus"></i></button>
+                <input type="checkbox" id="fill-color">
+                <label for="fill-color">Fill Color</label>
             </div>
 
-            <div class="stroke-style"></div>
-            
-            <div class="opacity">
-                <label class="title">Opacity</label>
-                <input type="range" id="opacity-slider">
+            <div class="stroke-width">
+                <label class="title">Stroke Width</label>
+                <button><i class="fa-solid fa-minus"></i></button>
+                <button><i class="fa-solid fa-minus"></i></button>
+                <button><i class="fa-solid fa-minus"></i></button>
             </div>
-            
         </div>
+
+        <div id="foot">
+            <div class="foot-left">
+                <div class="zoom-div">
+                    <div class="decrease"><i class="fa-solid fa-minus"></i></i></div>
+                    <div class="percentage">100%</div>
+                    <div class="increase"><i class="fa-solid fa-plus"></i></div>
+                </div>
+                <div class="undo-redo-div">
+                    <div id="undo" class="undo">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <div id="redo" class="redo">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-right">
+                <div class="encript">
+                    <i class="fa-solid fa-shield-heart" style="color: #6965db; cursor: pointer"></i>
+                </div>
+                <div class="help">
+                    <i class="fa-regular fa-circle-question"></i>
+                </div>
+            </div>
+        </div>
+
         <canvas id="canvas"></canvas>
     </main>
 
