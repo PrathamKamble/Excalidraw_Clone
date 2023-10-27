@@ -100,18 +100,21 @@
 
             <div class="stroke-width">
                 <label class="title">Stroke Width</label>
-                <button><i class="fa-solid fa-minus"></i></button>
-                <button><i class="fa-solid fa-minus"></i></button>
-                <button><i class="fa-solid fa-minus"></i></button>
+                <div class="stroke-btn">
+                    <button class="width-btn active" id="small"><i class="fa-solid fa-minus"></i></button>
+                    <button class="width-btn" id="mid"><i class="fa-solid fa-minus"></i></button>
+                    <button class="width-btn" id="thick"><i class="fa-solid fa-minus"></i></button>
+                </div>
             </div>
+
         </div>
 
         <div id="foot">
             <div class="foot-left">
                 <div class="zoom-div">
-                    <div class="decrease"><i class="fa-solid fa-minus"></i></i></div>
+                    <div id="zoom-out" class="decrease"><i class="fa-solid fa-minus"></i></i></div>
                     <div class="percentage">100%</div>
-                    <div class="increase"><i class="fa-solid fa-plus"></i></div>
+                    <div id="zoom-in" class="increase"><i class="fa-solid fa-plus"></i></div>
                 </div>
                 <div class="undo-redo-div">
                     <div id="undo" class="undo">
@@ -136,6 +139,7 @@
     </main>
 
     <script src="./script.js"></script>
+    <script src="./undo&redo.js"></script>
 </body>
 
 </html>

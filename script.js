@@ -4,8 +4,9 @@ const toolBtns = document.querySelectorAll(".tool");
 const fillColor = document.querySelector("#fill-color");
 const colorBtns = document.querySelectorAll(".stroke .option");
 const bgColorBtns = document.querySelectorAll(".bg-color .option");
-const colorPicker = document.querySelector("#color-picker")
-const bgColorPicker = document.querySelector("#bgColor-picker")
+const colorPicker = document.querySelector("#color-picker");
+const bgColorPicker = document.querySelector("#bgColor-picker");
+const widthBtns = document.querySelectorAll(".width-btn");
 ctx = canvas.getContext("2d");
 
 canvas.height = window.innerHeight;
@@ -13,12 +14,31 @@ canvas.width = window.innerWidth;
 
 let isDrawing = false;
 let selectedTool = "hand";
-let strokeWidth = 5;
+let strokeWidth = 3;
 let prevMouseX;
 let prevMouseY;
 let snapshot;
 let selectedBgColor = "none";
 let selectedColor = "#1e1e1e";
+
+widthBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+
+        widthBtns.forEach(btn => btn.classList.remove("active"));
+
+        if (e.target.id === "small") {
+            strokeWidth = 3;
+        }
+        if (e.target.id === "mid") {
+            strokeWidth = 8;
+        }
+        if (e.target.id === "thick") {
+            strokeWidth = 12;
+        }
+
+        e.target.classList.add("active");
+    });
+});
 
 const drawRect = (e) => {
     if (!fillColor.checked) {
@@ -34,7 +54,6 @@ const drawDiamond = (e) => {
 
     const centerX = (e.offsetX + prevMouseX) / 2;
     const centerY = (e.offsetY + prevMouseY) / 2;
-
 
     ctx.moveTo(centerX, e.offsetY); // Top point
     ctx.lineTo(e.offsetX, centerY);  // Right point
@@ -89,6 +108,29 @@ const drawArrow = (e) => {
     ctx.stroke();
 }
 
+const drawLine = (e) => {
+    ctx.beginPath();
+
+    ctx.moveTo(prevMouseX, prevMouseY);
+
+    ctx.lineTo(e.offsetX, e.offsetY);
+
+    const angle = Math.atan2(e.offsetY - prevMouseY, e.offsetX - prevMouseX); // Calculate the angle of the arrow
+
+    const arrowHeadLength = 20; // Arrowhead length
+
+    ctx.stroke();
+
+
+    // Draw the arrowhead lines
+    ctx.moveTo(-arrowHeadLength, arrowHeadLength);
+    ctx.lineTo(0, 0);
+    ctx.lineTo(-arrowHeadLength, -arrowHeadLength);
+
+    ctx.restore();
+    ctx.stroke();
+}
+
 const startDraw = (e) => {
     isDrawing = true;
     prevMouseX = e.offsetX; // current mousex position
@@ -109,15 +151,23 @@ const drawing = (e) => {
     if (selectedTool === "pencil") {
         ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
-    } else if (selectedTool === "square") {
+    }
+    else if (selectedTool === "square") {
         drawRect(e);
-    } else if (selectedTool === "diamond") {
+    }
+    else if (selectedTool === "diamond") {
         drawDiamond(e);
-    } else if (selectedTool === "circle") {
+    }
+    else if (selectedTool === "circle") {
         drawCircle(e);
-    } else if (selectedTool === "arrow") {
+    }
+    else if (selectedTool === "arrow") {
         drawArrow(e);
-    } else if (selectedTool === "eraser") {
+    }
+    else if (selectedTool === "line") {
+        drawLine(e);
+    }
+    else if (selectedTool === "eraser") {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 };
@@ -137,6 +187,7 @@ toolBtns.forEach(btn => {
         }
         else if (selectedTool === "hand") {
             canvas.style.cursor = "grab";
+            document.querySelector(".color-palette").style.left = "-250px";
         }
         else {
             canvas.style.cursor = "default";

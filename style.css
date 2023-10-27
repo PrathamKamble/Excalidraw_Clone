@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'virgil';
     overflow: hidden;
+    user-select: none;
 }
 
 @font-face {
@@ -13,10 +14,11 @@
 
 .active {
     background-color: #e3e2fe !important;
+    transition: all .2s ease-in-out;
 }
 
 .active > i{
-    color: #6965db;
+    color: #6965db !important;
 }
 
 #main h1 {
@@ -39,6 +41,7 @@
     border-radius: 10px;
     background-color: #fff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 1px solid #eeeeee;
 }
 
 .tool-box .tool-container{
@@ -47,7 +50,6 @@
     align-items: center;
     padding: 1rem;
     gap: 5px;
-    border: 1px solid #eeeeee;
 }
 
 .hr_divider{
@@ -96,7 +98,7 @@
     padding: 0.8rem;
     display: flex;
     border-radius: 10px;
-    background: none;
+    background-color: #ececf4;
 }
 
 .menu button > i{
@@ -104,8 +106,9 @@
     font-size: 14px;
 }
 
-.menu button:hover{
-    background-color: #f5f5f5;
+.menu button:hover,
+.btn button:hover{
+    background-color: hsl(244, 100%, 97%);
 }
 
 .btn {
@@ -217,16 +220,24 @@
 .stroke-width {
     display: flex;
     gap: 10px;
+    flex-direction: column;
 }
 
 .stroke-width button {
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
     border: none;
-    padding: 4px 6px;
-    border-radius: 3px;
+    outline: none;
+    background-color: #ececf4;
+}
+
+.stroke-width button:hover {
+    background-color: hsl(244, 100%, 97%);
 }
 
 .stroke-width button > i{
-    display: flex;
+    display: block;
 }
 
 /* footer css */
