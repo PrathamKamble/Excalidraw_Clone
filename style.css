@@ -349,3 +349,56 @@
     border-radius: 8px;
     cursor: pointer;
   }
+
+    /* ----------------------- mobile resolution css -------------- */
+
+@media (max-width: 576px) { 
+    .menu, .btn {
+        display: none !important;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .stroke .options,
+    .bg-color .options {
+        gap: 5px;
+    }
+
+    .color-palette {
+        width: 210px;
+    }
+
+    .tool-box {
+        width: 400px;
+        overflow-x: scroll;
+    }
+
+    .tool-box .tool-container {
+        min-width: 600px;
+    }
+ }
+
+@media (max-width: 768px) { 
+    .menu, .btn {
+        display: none;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .stroke .options,
+    .bg-color .options {
+        gap: 5px;
+    }
+
+    .color-palette {
+        width: 210px;
+    }
+ }
+
+/* @media (min-width: 992px) {  }
+
+@media (min-width: 1200px) {  } */
